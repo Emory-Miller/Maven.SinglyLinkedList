@@ -9,7 +9,7 @@ import org.junit.Test;
 public class SinglyLinkedListTest {
     @Test
     public void addTest() {
-        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList<Integer>(1);
         sll.add(2);
 
         int expected = 2;
@@ -20,7 +20,7 @@ public class SinglyLinkedListTest {
 
     @Test
     public void removeTest() {
-        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList<Integer>(1);
         sll.add(2);
         sll.add(3);
         sll.remove(2);
@@ -33,7 +33,7 @@ public class SinglyLinkedListTest {
 
     @Test
     public void containsTest() {
-        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList<Integer>(1);
         sll.add(2);
 
         boolean expected = true;
@@ -44,7 +44,7 @@ public class SinglyLinkedListTest {
 
     @Test
     public void containsTest2() {
-        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList<Integer>(1);
         sll.add(2);
 
         boolean expected = false;
@@ -55,7 +55,7 @@ public class SinglyLinkedListTest {
 
     @Test
     public void findTest() {
-        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList<Integer>(1);
         sll.add(2);
         sll.add(3);
         sll.add(4);
@@ -69,7 +69,7 @@ public class SinglyLinkedListTest {
 
     @Test
     public void sizeTest() {
-        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList<Integer>(1);
         sll.add(2);
         sll.add(3);
         sll.add(4);
@@ -83,7 +83,7 @@ public class SinglyLinkedListTest {
 
     @Test
     public void getTest() {
-        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList<Integer>(1);
         sll.add(2);
         sll.add(3);
         sll.add(4);
@@ -97,7 +97,7 @@ public class SinglyLinkedListTest {
 
     @Test
     public void copyTest() {
-        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList<Integer>(1);
         sll.add(2);
         sll.add(3);
         sll.add(4);
@@ -113,7 +113,7 @@ public class SinglyLinkedListTest {
 
     @Test
     public void sortASCTest() {
-        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList<Integer>(1);
         sll.add(5);
         sll.add(2);
         sll.add(10);
@@ -127,7 +127,7 @@ public class SinglyLinkedListTest {
 
     @Test
     public void sortDESCTest() {
-        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList<Integer>(1);
         sll.add(5);
         sll.add(2);
         sll.add(10);
