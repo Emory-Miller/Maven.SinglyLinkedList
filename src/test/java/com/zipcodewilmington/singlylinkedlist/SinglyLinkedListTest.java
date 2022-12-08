@@ -43,6 +43,17 @@ public class SinglyLinkedListTest {
     }
 
     @Test
+    public void containsTest2() {
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
+        sll.add(2);
+
+        boolean expected = false;
+        boolean actual = sll.contains(3);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
     public void findTest() {
         SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
         sll.add(2);

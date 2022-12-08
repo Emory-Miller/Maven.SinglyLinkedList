@@ -46,12 +46,13 @@ public class SinglyLinkedList<T extends Comparable>{
 
     //	- contains -- returns true if the element is in the list, false otherwise
     public boolean contains(T data) {
-        Node<T> current = head;
-        while (current != null) {
-            if (current.data == data) return true;
-            current = current.next;
-        }
-        return false;
+        return find(data) != -1;
+//        Node<T> current = head;
+//        while (current != null) {
+//            if (current.data == data) return true;
+//            current = current.next;
+//        }
+//        return false;
     }
 
     //	- find -- returns the element's index if it is in the list, -1 otherwise

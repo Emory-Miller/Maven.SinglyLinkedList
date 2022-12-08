@@ -1,11 +1,11 @@
 package com.zipcodewilmington.singlylinkedlist;
 
-public class Node<T extends Comparable> {
+public class Node<T extends Comparable>{
 
     T data;
-    Node next;
+    Node<T> next;
 
-    public Node(T data, Node next) {
+    public Node(T data, Node<T> next) {
         this.data = data;
         this.next = next;
     }
@@ -15,11 +15,11 @@ public class Node<T extends Comparable> {
         this.next = null;
     }
 
-    public Node getNext() {
+    public Node<T> getNext() {
         return next;
     }
 
-    public void setNext(Node next) {
+    public void setNext(Node<T> next) {
         this.next = next;
     }
 
