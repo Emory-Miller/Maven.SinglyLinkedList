@@ -9,7 +9,7 @@ import org.junit.Test;
 public class SinglyLinkedListTest {
     @Test
     public void addTest() {
-        SinglyLinkedList sll = new SinglyLinkedList(1);
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
         sll.add(2);
 
         int expected = 2;
@@ -20,7 +20,7 @@ public class SinglyLinkedListTest {
 
     @Test
     public void removeTest() {
-        SinglyLinkedList sll = new SinglyLinkedList(1);
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
         sll.add(2);
         sll.add(3);
         sll.remove(2);
@@ -33,7 +33,7 @@ public class SinglyLinkedListTest {
 
     @Test
     public void containsTest() {
-        SinglyLinkedList sll = new SinglyLinkedList(1);
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
         sll.add(2);
 
         boolean expected = true;
@@ -44,7 +44,7 @@ public class SinglyLinkedListTest {
 
     @Test
     public void findTest() {
-        SinglyLinkedList sll = new SinglyLinkedList(1);
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
         sll.add(2);
         sll.add(3);
         sll.add(4);
@@ -58,7 +58,7 @@ public class SinglyLinkedListTest {
 
     @Test
     public void sizeTest() {
-        SinglyLinkedList sll = new SinglyLinkedList(1);
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
         sll.add(2);
         sll.add(3);
         sll.add(4);
@@ -72,20 +72,32 @@ public class SinglyLinkedListTest {
 
     @Test
     public void getTest() {
-        SinglyLinkedList sll = new SinglyLinkedList(1);
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
         sll.add(2);
         sll.add(3);
         sll.add(4);
         sll.add(5);
 
-        Node expected = sll.;
-        Node actual = sll.get(1);
+        String expected = "Node{data=2} ";
+        String actual = sll.get(1).toString();
 
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void copyTest() {
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
+        sll.add(2);
+        sll.add(3);
+        sll.add(4);
+        sll.add(5);
+
+        SinglyLinkedList<Integer> copy = sll.copy(sll);
+
+        Integer expected = (Integer) sll.get(1).data;
+        Integer actual = (Integer) copy.get(1).data;
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test

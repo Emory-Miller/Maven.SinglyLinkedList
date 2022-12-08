@@ -3,17 +3,17 @@ package com.zipcodewilmington.singlylinkedlist;
 /**
  * Created by leon on 1/10/18.
  */
-public class SinglyLinkedList {
+public class SinglyLinkedList<T> {
     Node head;
     Node tail;
 
-    public SinglyLinkedList(int value) {
-        head = new Node(value);
+    public SinglyLinkedList(T data) {
+        head = new Node(data);
     }
 
     //  - add -- add an element to the list
-    public void add(int value) {
-        Node node = new Node(value);
+    public void add(T data) {
+        Node node = new Node(data);
 
         if (head == null) {
             head = node;
@@ -45,21 +45,21 @@ public class SinglyLinkedList {
     }
 
     //	- contains -- returns true if the element is in the list, false otherwise
-    public boolean contains(int value) {
+    public boolean contains(T data) {
         Node current = head;
         while (current != null) {
-            if (current.value == value) return true;
+            if (current.data == data) return true;
             current = current.next;
         }
         return false;
     }
 
     //	- find -- returns the element's index if it is in the list, -1 otherwise
-    public int find(int value) {
+    public int find(T data) {
         int count = 0;
         Node current = head;
         while (current != null) {
-            if (current.value == value) return count;
+            if (current.data == data) return count;
             current = current.next;
             count++;
         }
@@ -93,14 +93,14 @@ public class SinglyLinkedList {
     public SinglyLinkedList copy(SinglyLinkedList list) {
         if (head == null) return null;
 
-        SinglyLinkedList copy = new SinglyLinkedList(list.head.value);
+        SinglyLinkedList copy = new SinglyLinkedList(list.head.data);
 
         Node current = list.head;
         Node tail = list.head;
         while (tail != null) {
             current = current.next;
             tail = current.next;
-            copy.add(current.value);
+            copy.add(current.data);
         }
         return copy;
     }
@@ -108,22 +108,7 @@ public class SinglyLinkedList {
     //	- sort -- sorts the list using your algorithm of choice. You must perform the sorting yourself (no fair using someone else's library)
     public SinglyLinkedList sort(SinglyLinkedList list) {
 
-        boolean sorted = false;
-        while (!sorted) {
-            Node current;
-            Node temp;
-            sorted = true;
 
-            for (int i = 0; i < list.size() - 1; i++){
-                if (list.get(i).value > list.get(i+1).value) {
-                    temp = list.get(i);
-                    current = list.get(i);
-                    current = list.get(i+1);
-                    list.get(i+1).setNext(temp);
-                    sorted = false;
-                }
-            }
-        }
         return list;
     }
 

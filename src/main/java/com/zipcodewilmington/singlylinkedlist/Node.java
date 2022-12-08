@@ -1,17 +1,17 @@
 package com.zipcodewilmington.singlylinkedlist;
 
-public class Node {
+public class Node<T> {
 
-    int value;
+    T data;
     Node next;
 
-    public Node(int value, Node next) {
-        this.value = value;
+    public Node(T data, Node next) {
+        this.data = data;
         this.next = next;
     }
 
-    public Node (int value){
-        this.value = value;
+    public Node (T data){
+        this.data = data;
         this.next = null;
     }
 
@@ -26,7 +26,7 @@ public class Node {
     @Override
     public String toString() {
         return "Node{" +
-                "value=" + value +
+                "data=" + data +
                 "} ";
     }
 }
