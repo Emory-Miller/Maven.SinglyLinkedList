@@ -106,13 +106,13 @@ public class SinglyLinkedList<T extends Comparable>{
     }
 
     //	- sort -- sorts the list using your algorithm of choice. You must perform the sorting yourself (no fair using someone else's library)
-    public SinglyLinkedList sort(SinglyLinkedList list) {
+    public SinglyLinkedList sortASC(SinglyLinkedList list) {
         Node prevNode = list.head;
         Node current = prevNode.next;
         Node temp = new Node(head.data);
         for (int i = 0; i < list.size() ; i++){
             while (current != null){
-                if(prevNode.data.compareTo(current.data) >0){
+                if(prevNode.data.compareTo(current.data) > 0){
                     temp.data = prevNode.data;
                     prevNode.data = current.data;
                     current.data = temp.data;
@@ -122,6 +122,27 @@ public class SinglyLinkedList<T extends Comparable>{
             }
            prevNode = list.head;
            current = prevNode;
+        }
+
+        return list;
+    }
+
+    public SinglyLinkedList sortDESC(SinglyLinkedList list) {
+        Node prevNode = list.head;
+        Node current = prevNode.next;
+        Node temp = new Node(head.data);
+        for (int i = 0; i < list.size() ; i++){
+            while (current != null){
+                if(prevNode.data.compareTo(current.data) < 0){
+                    temp.data = prevNode.data;
+                    prevNode.data = current.data;
+                    current.data = temp.data;
+                }
+                prevNode = current;
+                current = current.next;
+            }
+            prevNode = list.head;
+            current = prevNode;
         }
 
         return list;

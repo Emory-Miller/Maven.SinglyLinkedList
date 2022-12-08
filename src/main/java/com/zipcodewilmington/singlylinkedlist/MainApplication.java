@@ -24,6 +24,6 @@ public class MainApplication {
         singlyLinkedList.add(2);
         singlyLinkedList.add(6);
         singlyLinkedList.add(3);
-        System.out.println(singlyLinkedList.sort(singlyLinkedList));
+        System.out.println(singlyLinkedList.sortASC(singlyLinkedList));
     }
 }

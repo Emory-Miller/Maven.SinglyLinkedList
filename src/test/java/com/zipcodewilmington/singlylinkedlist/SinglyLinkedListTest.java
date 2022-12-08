@@ -101,10 +101,31 @@ public class SinglyLinkedListTest {
     }
 
     @Test
-    public void sortTest() {
+    public void sortASCTest() {
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
+        sll.add(5);
+        sll.add(2);
+        sll.add(10);
+        sll.add(6);
+
+        String expected = "Nodes in List: Node{data=1} Node{data=2} Node{data=5} Node{data=6} Node{data=10} ";
+        String actual = sll.sortASC(sll).toString();
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void testToStringTest() {
+    public void sortDESCTest() {
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList(1);
+        sll.add(5);
+        sll.add(2);
+        sll.add(10);
+        sll.add(6);
+
+        String expected = "Nodes in List: Node{data=10} Node{data=6} Node{data=5} Node{data=2} Node{data=1} ";
+        String actual = sll.sortDESC(sll).toString();
+
+        Assert.assertEquals(expected, actual);
     }
+
 }
