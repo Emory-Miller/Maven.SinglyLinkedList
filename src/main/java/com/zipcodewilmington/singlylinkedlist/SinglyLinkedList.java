@@ -4,24 +4,24 @@ package com.zipcodewilmington.singlylinkedlist;
  * Created by leon on 1/10/18.
  */
 public class SinglyLinkedList<T extends Comparable>{
-    Node head;
-    Node tail;
+    Node<T> head;
+    Node<T> tail;
 
     public SinglyLinkedList(T data) {
-        head = new Node(data);
+        head = new Node<T>(data);
     }
 
     //  - add -- add an element to the list
     public void add(T data) {
-        Node node = new Node(data);
+        Node<T> node = new Node<T>(data);
 
         if (head == null) {
             head = node;
             tail = node;
         }
 
-        Node current = head;
-        Node tail = current.next;
+        Node<T> current = head;
+        Node<T> tail = current.next;
         while (tail != null) {
             current = current.next;
             tail = current.next;
@@ -32,12 +32,12 @@ public class SinglyLinkedList<T extends Comparable>{
     //	- remove -- remove an element (specified by numeric index) from the list
     public void remove(int index) {
         int count = 0;
-        Node current = head;
+        Node<T> current = head;
         while (current != null) {
             count++;
             current = current.next;
             if ((count + 1) == index) {
-                Node remove = current.next;
+                Node<T> remove = current.next;
                 current.setNext(remove.next);
                 break;
             }
@@ -46,7 +46,7 @@ public class SinglyLinkedList<T extends Comparable>{
 
     //	- contains -- returns true if the element is in the list, false otherwise
     public boolean contains(T data) {
-        Node current = head;
+        Node<T> current = head;
         while (current != null) {
             if (current.data == data) return true;
             current = current.next;
@@ -57,7 +57,7 @@ public class SinglyLinkedList<T extends Comparable>{
     //	- find -- returns the element's index if it is in the list, -1 otherwise
     public int find(T data) {
         int count = 0;
-        Node current = head;
+        Node<T> current = head;
         while (current != null) {
             if (current.data == data) return count;
             current = current.next;
@@ -69,7 +69,7 @@ public class SinglyLinkedList<T extends Comparable>{
     //  - size -- returns the current size of the list
     public int size() {
         int count = 0;
-        Node current = head;
+        Node<T> current = head;
         while (current != null) {
             count++;
             current = current.next;
@@ -78,9 +78,9 @@ public class SinglyLinkedList<T extends Comparable>{
     }
 
     //	- get -- returns the element at the specified index
-    public Node get(int index) {
+    public Node<T> get(int index) {
         int count = 0;
-        Node current = head;
+        Node<T> current = head;
         while (current != null) {
             if (count == index) return current;
             current = current.next;
@@ -90,13 +90,13 @@ public class SinglyLinkedList<T extends Comparable>{
     }
 
     //	- copy -- returns a new linked list containing the same values (look up deep versus shallow copy)
-    public SinglyLinkedList copy(SinglyLinkedList list) {
+    public SinglyLinkedList<T> copy(SinglyLinkedList<T> list) {
         if (head == null) return null;
 
-        SinglyLinkedList copy = new SinglyLinkedList(list.head.data);
+        SinglyLinkedList<T> copy = new SinglyLinkedList<T>(list.head.data);
 
-        Node current = list.head;
-        Node tail = list.head;
+        Node<T> current = list.head;
+        Node<T> tail = list.head;
         while (tail != null) {
             current = current.next;
             tail = current.next;
@@ -106,10 +106,10 @@ public class SinglyLinkedList<T extends Comparable>{
     }
 
     //	- sort -- sorts the list using your algorithm of choice. You must perform the sorting yourself (no fair using someone else's library)
-    public SinglyLinkedList sortASC(SinglyLinkedList list) {
-        Node prevNode = list.head;
-        Node current = prevNode.next;
-        Node temp = new Node(head.data);
+    public SinglyLinkedList<T> sortASC(SinglyLinkedList<T> list) {
+        Node<T> prevNode = list.head;
+        Node<T> current = prevNode.next;
+        Node<T> temp = new Node<T>(head.data);
         for (int i = 0; i < list.size() ; i++){
             while (current != null){
                 if(prevNode.data.compareTo(current.data) > 0){
@@ -127,10 +127,10 @@ public class SinglyLinkedList<T extends Comparable>{
         return list;
     }
 
-    public SinglyLinkedList sortDESC(SinglyLinkedList list) {
-        Node prevNode = list.head;
-        Node current = prevNode.next;
-        Node temp = new Node(head.data);
+    public SinglyLinkedList<T> sortDESC(SinglyLinkedList<T> list) {
+        Node<T> prevNode = list.head;
+        Node<T> current = prevNode.next;
+        Node<T> temp = new Node<T>(head.data);
         for (int i = 0; i < list.size() ; i++){
             while (current != null){
                 if(prevNode.data.compareTo(current.data) < 0){
@@ -150,7 +150,7 @@ public class SinglyLinkedList<T extends Comparable>{
 
     @Override
     public String toString() {
-        Node current = head;
+        Node<T> current = head;
         StringBuilder nodes = new StringBuilder();
         nodes.append("Nodes in List: ");
         while (current != null) {
