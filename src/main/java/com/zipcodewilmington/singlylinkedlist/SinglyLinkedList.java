@@ -5,41 +5,55 @@ package com.zipcodewilmington.singlylinkedlist;
  */
 public class SinglyLinkedList<T extends Comparable<T>>{
     Node<T> head;
-    Node<T> tail;
 
-    public SinglyLinkedList(T data) {
-        head = new Node<T>(data);
-    }
+//    public SinglyLinkedList(T data) {
+//        head = new Node<T>(data);
+//    }
 
     //  - add -- add an element to the list
     public void add(T data) {
         Node<T> node = new Node<T>(data);
 
-        if (head == null) {
-            head = node;
-            tail = node;
+        if (this.head == null) {
+            this.head = node;
         }
 
-        Node<T> current = head;
-        Node<T> tail = current.next;
-        while (tail != null) {
-            current = current.next;
-            tail = current.next;
+        else {
+            Node<T> current = this.head;
+            Node<T> tail = current.next;
+            while (tail != null) {
+                current = current.next;
+                tail = current.next;
+            }
+            current.setNext(node);
         }
-        current.setNext(node);
     }
 
     //	- remove -- remove an element (specified by numeric index) from the list
     public void remove(int index) {
         int count = 0;
-        Node<T> current = head;
-        while (current != null) {
-            count++;
-            current = current.next;
-            if ((count + 1) == index) {
-                Node<T> remove = current.next;
-                current.setNext(remove.next);
-                break;
+        Node<T> current = this.head;
+
+        if (index == 0 && current.hasNext()) this.head = head.next;
+
+        else if (index == 0 && !current.hasNext()) {
+            this.head = null;
+        }
+
+        else if (index == size()-1) {
+            current = get(index-1);
+            current.setNext(null);
+        }
+
+        else {
+            while (current.hasNext()) {
+                if (count == index) {
+                    Node<T> remove = current.next;
+                    current.setNext(remove.next);
+                    break;
+                }
+                current = current.next;
+                count++;
             }
         }
     }
@@ -91,17 +105,15 @@ public class SinglyLinkedList<T extends Comparable<T>>{
     }
 
     //	- copy -- returns a new linked list containing the same values (look up deep versus shallow copy)
-    public SinglyLinkedList<T> copy(SinglyLinkedList<T> list) {
+    public SinglyLinkedList<T> copy() {
         if (head == null) return null;
 
-        SinglyLinkedList<T> copy = new SinglyLinkedList<T>(list.head.data);
+        SinglyLinkedList<T> copy = new SinglyLinkedList<T>();
 
-        Node<T> current = list.head;
-        Node<T> tail = list.head;
-        while (tail != null) {
-            current = current.next;
-            tail = current.next;
+        Node<T> current = this.head;
+        while (current.hasNext()) {
             copy.add(current.data);
+            current = current.next;
         }
         return copy;
     }

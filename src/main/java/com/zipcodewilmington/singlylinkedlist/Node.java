@@ -19,6 +19,10 @@ public class Node<T extends Comparable<T>>{
         return next;
     }
 
+    public boolean hasNext(){
+        return getNext() != null;
+    }
+
     public void setNext(Node<T> next) {
         this.next = next;
     }
